@@ -1,0 +1,40 @@
+@import './sass/normalize.scss';
+@import './sass/constants.scss';
+
+body {
+  @include roboto;
+  color: $color-dark;
+  scroll-behavior: smooth;
+}
+
+.body_overflow {
+  overflow-y: hidden;
+}
+
+.wrapper {
+  max-width: $base * 314;
+  width: 82vw;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-lg-min) {
+    width: 97vw;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  @include roboto;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Layout, Main } from './pages';
+import { PATHS } from './shared/paths';
 
-function App() {
+const App: FC = () => {
+  const { main, any } = PATHS;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path={main} element={<Layout />}>
+        <Route index element={<Main />} />
+        <Route path={any} element={<Main />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
-export default App;
+export { App };
