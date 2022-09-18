@@ -1,0 +1,9 @@
+@import '../../sass/constants.scss';
+
+.table {
+  width: 100%;
+}
+
+.tr {
+  border-bottom: 1px solid $color-dark;
+}

@@ -1,0 +1,19 @@
+@import '../../../../sass/constants.scss';
+
+.header-currencies {
+  display: flex;
+  gap: $base;
+}
+
+.header-currency__wrapper {
+  display: flex;
+  align-items: center;
+  gap: $base;
+}
+
+.header-currency__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $base;
+}
