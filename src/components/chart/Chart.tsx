@@ -11,7 +11,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 
 ChartJS.register(
   CategoryScale,
@@ -37,8 +36,6 @@ export const options = {
   },
 };
 
-// const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
 export interface IChart {
   labelsChart: string[] | undefined;
   dataChart: string[] | undefined;
@@ -59,11 +56,7 @@ const Chart: FC<IChart> = ({ labelsChart, dataChart, name }) => {
     ],
   };
 
-  return (
-    <>
-      <Line options={options} data={data} />
-    </>
-  );
+  return <Line options={options} data={data} />;
 };
 
 export { Chart };
