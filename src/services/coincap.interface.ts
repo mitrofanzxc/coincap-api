@@ -1,10 +1,10 @@
 export interface IAssets {
-  id: string;
+  id?: string;
   rank: string;
   symbol: string;
   name: string;
   supply: string;
-  maxSupply: string;
+  maxSupply?: string;
   marketCapUsd: string;
   volumeUsd24Hr: string;
   priceUsd: string;

@@ -2,8 +2,27 @@
 
 .table {
   width: 100%;
+  text-align: end;
+  border-collapse: collapse;
 }
 
-.tr {
+tr {
   border-bottom: 1px solid $color-dark;
+  // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+th {
+  &:first-child {
+    text-align: center;
+  }
+
+  &:nth-child(2) {
+    text-align: center;
+  }
+}
+
+td {
+  &:first-child {
+    text-align: center;
+  }
 }
