@@ -15,6 +15,7 @@
   height: 25%;
   padding: $base * 8 $base * 3 $base * 3 $base * 3;
   background-color: $color-white;
+  border-radius: $base;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 
   @media (max-width: $breakpoint-sm-min) {
@@ -29,14 +30,19 @@
     position: absolute;
     top: 0;
     right: 0;
+    font-size: $fs-xxl;
+    font-weight: $fw-medium;
   }
 }
 
 .input-number {
   display: block;
   width: 95%;
-  height: 35%;
+  height: 25%;
   margin: 0 auto;
-  font-size: $fs-xl;
+  padding: $base * 2;
+  font-size: $fs-xxl;
+  font-weight: $fw-medium;
+  border-radius: $base;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }

@@ -17,7 +17,7 @@ const Main: FC = () => {
   };
 
   return (
-    <div>
+    <>
       <table className="table">
         <TableHead />
         <tbody>
@@ -62,7 +62,7 @@ const Main: FC = () => {
       </table>
       <ButtonPrimary description="View More" onClick={increaseLimit} />
       <ModalAdd />
-    </div>
+    </>
   );
 };
 

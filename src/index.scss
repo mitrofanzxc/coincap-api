@@ -26,13 +26,9 @@ body {
 }
 
 .wrapper {
-  max-width: $base * 314;
-  width: 82vw;
+  max-width: $base * 480;
+  width: 95%;
   margin: 0 auto;
-
-  @media (max-width: $breakpoint-lg-min) {
-    width: 97vw;
-  }
 }
 
 h1,

@@ -15,7 +15,13 @@ const ModalAdd: FC = () => {
   return (
     <>
       <div className={`modal_add-wrapper ${!isModalAddOpen ? 'display_none' : ''}`}>
-        <input type="number" name="" id="" className="input-number" />
+        <input
+          type="number"
+          name=""
+          id=""
+          placeholder="add amount of currency..."
+          className="input-number"
+        />
         <ButtonPrimary description="Submit" />
         <ButtonSecondary description="x" onClick={closeModal} />
       </div>

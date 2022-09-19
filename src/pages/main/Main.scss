@@ -2,6 +2,7 @@
 
 .table {
   width: 100%;
+  margin-top: $base * 2;
   text-align: end;
   border-collapse: collapse;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
@@ -9,7 +10,6 @@
 
 tr {
   border-bottom: 1px solid $color-dark;
-  // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 th {

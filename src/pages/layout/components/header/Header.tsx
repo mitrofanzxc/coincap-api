@@ -10,7 +10,7 @@ const Header: FC = () => {
   const { data: assets, isLoading } = useGetAssetsQuery({ limit: 3 });
 
   return (
-    <header className="header">
+    <header className="header wrapper">
       <div className="header-currencies">
         {isLoading && <div>Loading...</div>}
         {!isLoading &&
