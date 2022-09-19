@@ -1,7 +1,9 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { IAssets } from '../../services/coincap.interface';
 
 const TableRow: FC<IAssets> = ({
+  id,
   rank,
   name,
   symbol,
@@ -19,11 +21,12 @@ const TableRow: FC<IAssets> = ({
         <img
           src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
           alt={symbol}
+          className="header-currency__icon"
         />
-        <div className="header-currency__name">
+        <Link to={`${id}`} className="header-currency__name">
           <div>{`${name}`}</div>
           <div>{`${symbol}`}</div>
-        </div>
+        </Link>
       </td>
       <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
         style: 'currency',

@@ -1,26 +1,21 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useGetAssetsQuery } from '../../services/coincap';
-import { TableRow } from '../../components';
+import { TableHead, TableRow, ButtonPrimary } from '../../components';
 import './Main.scss';
 
 const Main: FC = () => {
-  const { data: assets, isLoading } = useGetAssetsQuery({ limit: 20 });
+  const [limit, setLimit] = useState<number>(20);
+
+  const { data: assets, isLoading } = useGetAssetsQuery({ limit: limit });
+
+  const increaseLimit = () => {
+    setLimit(limit + 20);
+  };
 
   return (
     <div>
       <table className="table">
-        <thead>
-          <tr>
-            <th colSpan={1}>Rank</th>
-            <th colSpan={1}>Name</th>
-            <th colSpan={1}>Price</th>
-            <th colSpan={1}>Market Cap</th>
-            <th colSpan={1}>VWAP (24Hr)</th>
-            <th colSpan={1}>Supply</th>
-            <th colSpan={1}>Volume (24Hr)</th>
-            <th colSpan={1}>Change (24Hr)</th>
-          </tr>
-        </thead>
+        <TableHead />
         <tbody>
           {isLoading && (
             <tr>
@@ -45,6 +40,7 @@ const Main: FC = () => {
                 return (
                   <TableRow
                     key={id}
+                    id={id}
                     rank={rank}
                     name={name}
                     symbol={symbol}
@@ -60,7 +56,7 @@ const Main: FC = () => {
             )}
         </tbody>
       </table>
-      <button>View More</button>
+      <ButtonPrimary description="View More" onClick={increaseLimit} />
     </div>
   );
 };

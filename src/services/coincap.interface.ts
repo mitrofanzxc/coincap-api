@@ -23,3 +23,27 @@ export interface IGetAssetsRequest {
   limit?: number;
   offset?: number;
 }
+
+export interface IGetAssetResponse {
+  data: IAssets;
+  timestamp: number;
+}
+
+export interface IGetAssetRequest {
+  id?: string;
+}
+
+export interface IHistory {
+  priceUsd: string;
+  time: number;
+}
+
+export interface IGetAssetHisoryResponse {
+  data: IHistory[];
+  timestamp: number;
+}
+
+export interface IGetAssetHisoryRequest {
+  id?: string;
+  interval?: string;
+}

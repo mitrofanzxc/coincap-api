@@ -1,5 +1,11 @@
 @import '../../../../sass/constants.scss';
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header-currencies {
   display: flex;
   gap: $base;
@@ -18,4 +24,27 @@
   flex-direction: column;
   justify-content: center;
   gap: $base;
+  color: $color-dark;
+  transition: all $transition;
+
+  &:hover {
+    div {
+      text-decoration: underline;
+    }
+  }
+}
+
+.header-currency__icon {
+  width: $base * 8;
+  height: $base * 8;
+}
+
+.logo-wrapper {
+  display: block;
+  width: $base * 20;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
 }

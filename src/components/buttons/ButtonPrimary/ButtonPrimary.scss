@@ -1,0 +1,17 @@
+@import '../../../sass/constants.scss';
+
+.button-primary {
+  display: block;
+  width: $base * 50;
+  margin: $base * 2 auto;
+  padding: $base * 2;
+  border-radius: $base * 4;
+  background-color: $color-primary;
+  text-align: center;
+  transition: all $transition-01;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-link;
+  }
+}

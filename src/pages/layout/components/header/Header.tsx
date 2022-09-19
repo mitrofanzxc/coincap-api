@@ -1,12 +1,16 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { useGetAssetsQuery } from '../../../../services/coincap';
+import { PATHS } from '../../../../shared/paths';
+import logo from '../../../../assets/images/logo.svg';
 import './Header.scss';
 
 const Header: FC = () => {
+  const { main } = PATHS;
   const { data: assets, isLoading } = useGetAssetsQuery({ limit: 3 });
 
   return (
-    <header>
+    <header className="header">
       <div className="header-currencies">
         {isLoading && <div>Loading...</div>}
         {!isLoading &&
@@ -17,6 +21,7 @@ const Header: FC = () => {
                 <img
                   src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
                   alt={symbol}
+                  className="header-currency__icon"
                 />
                 <div className="header-currency__name">
                   <div>{`${name}`}</div>
@@ -30,6 +35,9 @@ const Header: FC = () => {
             );
           })}
       </div>
+      <Link to={main} className="logo-wrapper">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
     </header>
   );
 };

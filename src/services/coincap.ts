@@ -1,5 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IGetAssetsResponse, IGetAssetsRequest } from './coincap.interface';
+import {
+  IGetAssetsResponse,
+  IGetAssetsRequest,
+  IGetAssetResponse,
+  IGetAssetRequest,
+  IGetAssetHisoryResponse,
+  IGetAssetHisoryRequest,
+} from './coincap.interface';
 
 export const coinCapApi = createApi({
   reducerPath: 'coinCapApi',
@@ -9,7 +16,14 @@ export const coinCapApi = createApi({
       query: ({ search = '', ids = '', limit = 20, offset = 0 }) =>
         `assets?${limit && `limit=${limit}`}`,
     }),
+    getAsset: builder.query<IGetAssetResponse, IGetAssetRequest>({
+      query: ({ id = '' }) => `assets/${id && `${id}`}`,
+    }),
+    getAssetHistory: builder.query<IGetAssetHisoryResponse, IGetAssetHisoryRequest>({
+      query: ({ id = '', interval = 'd1' }) =>
+        `assets/${id && `${id}`}/history?${interval && `interval=${interval}`}`,
+    }),
   }),
 });
 
-export const { useGetAssetsQuery } = coinCapApi;
+export const { useGetAssetsQuery, useGetAssetQuery, useGetAssetHistoryQuery } = coinCapApi;
