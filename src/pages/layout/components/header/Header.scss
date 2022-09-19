@@ -8,14 +8,22 @@
 
 .header-currencies {
   display: flex;
+  flex-wrap: wrap;
   gap: $base;
 }
 
 .header-currency__wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: $base;
   padding: $base;
+}
+
+.header-currency__name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: $base;
 }
 
 .header-currency__name {
@@ -25,6 +33,7 @@
   justify-content: center;
   gap: $base;
   color: $color-dark;
+  text-align: left;
   transition: all $transition;
 
   &:hover {

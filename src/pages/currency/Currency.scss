@@ -1,1 +1,6 @@
 @import '../../sass/constants.scss';
+
+.currency-wrapper {
+  color: $color-white;
+  background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+}

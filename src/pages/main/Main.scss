@@ -19,10 +19,38 @@ th {
   &:nth-child(2) {
     text-align: left;
   }
+
+  &:nth-child(4),
+  &:nth-child(6) {
+    @media (max-width: $breakpoint-lg-min) {
+      display: none;
+    }
+  }
+
+  &:nth-child(5),
+  &:nth-child(7) {
+    @media (max-width: $breakpoint-sm-min) {
+      display: none;
+    }
+  }
 }
 
 td {
   &:first-child {
     text-align: center;
+  }
+
+  &:nth-child(4),
+  &:nth-child(6) {
+    @media (max-width: $breakpoint-lg-min) {
+      display: none;
+    }
+  }
+
+  &:nth-child(5),
+  &:nth-child(7) {
+    @media (max-width: $breakpoint-sm-min) {
+      display: none;
+    }
   }
 }

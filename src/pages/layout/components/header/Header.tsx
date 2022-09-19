@@ -23,10 +23,10 @@ const Header: FC = () => {
                   alt={symbol}
                   className="header-currency__icon"
                 />
-                <div className="header-currency__name">
+                <Link to={`/${id}`} className="header-currency__name">
                   <div>{`${name}`}</div>
                   <div>{`${symbol}`}</div>
-                </div>
+                </Link>
                 <div>{`${new Intl.NumberFormat('en-US', {
                   style: 'currency',
                   currency: 'USD',
@@ -38,6 +38,7 @@ const Header: FC = () => {
       <Link to={main} className="logo-wrapper">
         <img src={logo} alt="logo" className="logo" />
       </Link>
+      <div>Portfolio</div>
     </header>
   );
 };
