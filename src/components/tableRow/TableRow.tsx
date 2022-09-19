@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IAssets } from '../../services/coincap.interface';
 import { ButtonSecondary } from '../buttons';
+import { useAppDispatch } from '../../app/hooks';
+import { open } from '../../features/modalAddToggleSlice';
+import { IAssets } from '../../services/coincap.interface';
 
 const TableRow: FC<IAssets> = ({
   id,
@@ -15,6 +17,12 @@ const TableRow: FC<IAssets> = ({
   volumeUsd24Hr,
   changePercent24Hr,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const openModal = () => {
+    dispatch(open());
+  };
+
   return (
     <tr>
       <td colSpan={1}>{rank}</td>
@@ -30,7 +38,7 @@ const TableRow: FC<IAssets> = ({
             <div>{`${symbol}`}</div>
           </Link>
         </div>
-        <ButtonSecondary description="+" />
+        <ButtonSecondary description="+" onClick={openModal} />
       </td>
       <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
         style: 'currency',

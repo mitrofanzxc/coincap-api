@@ -1,0 +1,42 @@
+@import '../../../sass/constants.scss';
+
+.modal_add-wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $base * 5;
+  width: 50%;
+  height: 25%;
+  padding: $base * 8 $base * 3 $base * 3 $base * 3;
+  background-color: $color-white;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+  @media (max-width: $breakpoint-sm-min) {
+    width: 75%;
+  }
+
+  @media (max-width: $breakpoint-xs-min) {
+    width: 90%;
+  }
+
+  .button-secondary {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.input-number {
+  display: block;
+  width: 95%;
+  height: 35%;
+  margin: 0 auto;
+  font-size: $fs-xl;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}

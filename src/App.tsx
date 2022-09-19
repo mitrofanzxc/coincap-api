@@ -1,10 +1,22 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useAppSelector } from './app/hooks';
 import { Layout, Main, Currency } from './pages';
 import { PATHS } from './shared/paths';
 
 const App: FC = () => {
   const { main, currency, any } = PATHS;
+  const isModalAddOpen = useAppSelector(({ modalAddToggle }) => modalAddToggle.value);
+
+  useEffect(() => {
+    const BODY = document.querySelector('body') as HTMLBodyElement;
+
+    if (isModalAddOpen) {
+      BODY.classList.add('body_overflow');
+    } else {
+      BODY.classList.remove('body_overflow');
+    }
+  }, [isModalAddOpen]);
 
   return (
     <Routes>
