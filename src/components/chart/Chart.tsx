@@ -31,28 +31,34 @@ export const options = {
       position: 'top' as const,
     },
     title: {
-      display: true,
+      display: false,
       text: 'Chart.js Line Chart',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+// const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      fill: true,
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
+export interface IChart {
+  labelsChart: string[] | undefined;
+  dataChart: string[] | undefined;
+  name: string;
+}
 
-const Chart: FC = () => {
+const Chart: FC<IChart> = ({ labelsChart, dataChart, name }) => {
+  const data = {
+    labels: labelsChart,
+    datasets: [
+      {
+        fill: true,
+        label: name,
+        data: dataChart,
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
+
   return (
     <>
       <Line options={options} data={data} />

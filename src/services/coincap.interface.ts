@@ -34,6 +34,7 @@ export interface IGetAssetRequest {
 }
 
 export interface IHistory {
+  date: string;
   priceUsd: string;
   time: number;
 }
