@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface ModalAddToggleState {
+export interface IModalAddToggle {
   value: boolean;
 }
 
-const initialState: ModalAddToggleState = {
-  value: true,
+const initialState: IModalAddToggle = {
+  value: false,
 };
 
 export const modalAddToggleSlice = createSlice({

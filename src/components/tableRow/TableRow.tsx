@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { ButtonSecondary } from '../buttons';
 import { useAppDispatch } from '../../app/hooks';
 import { open } from '../../features/modalAddToggleSlice';
+import {
+  addCurrencyId,
+  addCurrencyName,
+  addCurrencySymbol,
+} from '../../features/currencyInfoSlice';
 import { IAssets } from '../../services/coincap.interface';
 
 const TableRow: FC<IAssets> = ({
@@ -19,7 +24,10 @@ const TableRow: FC<IAssets> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const openModal = () => {
+  const handleCurrency = () => {
+    dispatch(addCurrencyId(id!));
+    dispatch(addCurrencyName(name));
+    dispatch(addCurrencySymbol(symbol));
     dispatch(open());
   };
 
@@ -38,7 +46,7 @@ const TableRow: FC<IAssets> = ({
             <div>{`${symbol}`}</div>
           </Link>
         </div>
-        <ButtonSecondary description="+" onClick={openModal} />
+        <ButtonSecondary description="+" onClick={handleCurrency} />
       </td>
       <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
         style: 'currency',
