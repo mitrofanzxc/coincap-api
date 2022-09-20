@@ -1,6 +1,7 @@
 {
   "name": "coincap-api",
   "version": "0.1.0",
+  "homepage": "https://mitrofanzxc.github.io/coincap-api",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
