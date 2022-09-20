@@ -34,6 +34,21 @@ export const options = {
       text: 'Chart.js Line Chart',
     },
   },
+  // scales: {
+  //   x: {
+  //     title: {
+  //       display: true,
+  //     },
+  //     ticks: {
+  //       stepSize: 10000,
+  //     },
+  //   },
+  //   y: {
+  //     title: {
+  //       display: true,
+  //     },
+  //   },
+  // },
 };
 
 export interface IChart {

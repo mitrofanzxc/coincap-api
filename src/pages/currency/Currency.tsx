@@ -26,6 +26,9 @@ const Currency: FC = () => {
   );
 
   const dataChart = assetHistory?.data.map(({ priceUsd }) => Number(priceUsd).toFixed(2));
+  // const dataChartMin = Math.min(...dataChart!.map((value) => +value));
+  // const dataChartMax = Math.max(...dataChart!.map((value) => +value));
+  // const dataChartStep = (Math.abs(dataChartMin) + dataChartMax) / 2;
 
   const handleCurrency = () => {
     dispatch(addCurrencyId(asset!.data.id!));
@@ -52,12 +55,6 @@ const Currency: FC = () => {
               }).format(+asset.data.priceUsd)}`}</h3>
               <h3>{`${Number(asset.data.changePercent24Hr).toFixed(2)}%`}</h3>
             </div>
-            {/* <h2>{`${asset.data.name} (${asset.data.symbol})`}</h2>
-            <h2>{`${new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD',
-            }).format(+asset.data.priceUsd)}`}</h2>
-            <h2>{`${Number(asset.data.changePercent24Hr).toFixed(2)}%`}</h2> */}
             <div className="circle">
               <h3>Market Cap</h3>
               <h3>

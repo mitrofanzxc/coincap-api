@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useAppSelector } from './app/hooks';
+import { useAppSelector, useAppDispatch } from './app/hooks';
+import { parseCurrencyInfoToPortfolio } from './features/portfolioSlice';
 import { Layout, Main, Currency } from './pages';
 import { PATHS } from './shared/paths';
 
@@ -10,6 +11,15 @@ const App: FC = () => {
   const isModalPortfolioOpen = useAppSelector(
     ({ modalPortfolioToggle }) => modalPortfolioToggle.value
   );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const modalPortfolioInfo = localStorage.getItem('modalPortfolioInfo') || null;
+
+    if (modalPortfolioInfo) {
+      dispatch(parseCurrencyInfoToPortfolio(JSON.parse(modalPortfolioInfo)));
+    }
+  }, []);
 
   useEffect(() => {
     const BODY = document.querySelector('body') as HTMLBodyElement;

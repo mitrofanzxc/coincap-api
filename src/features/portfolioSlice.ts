@@ -5,6 +5,7 @@ export interface IPortfolio {
   id?: string;
   name?: string;
   symbol?: string;
+  priceUsd?: string;
   amount?: number;
 }
 
@@ -17,8 +18,11 @@ export const portfolioSlice = createSlice({
     addCurrencyInfoToPortfolio: (state, action: PayloadAction<IPortfolio>) => {
       state.push(action.payload);
     },
+    parseCurrencyInfoToPortfolio: (state, action: PayloadAction<IPortfolio[]>) => {
+      state = action.payload;
+    },
   },
 });
 
-export const { addCurrencyInfoToPortfolio } = portfolioSlice.actions;
+export const { addCurrencyInfoToPortfolio, parseCurrencyInfoToPortfolio } = portfolioSlice.actions;
 export default portfolioSlice.reducer;

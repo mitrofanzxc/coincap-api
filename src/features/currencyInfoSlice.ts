@@ -5,6 +5,7 @@ export interface ICurrencyInfoState {
   id?: string;
   name?: string;
   symbol?: string;
+  priceUsd?: string;
   amount?: number;
 }
 
@@ -23,12 +24,25 @@ export const currencyInfoSlice = createSlice({
     addCurrencySymbol: (state, action: PayloadAction<string>) => {
       state.symbol = action.payload;
     },
+    addCurrencyPriceUsd: (state, action: PayloadAction<string>) => {
+      state.priceUsd = action.payload;
+    },
     addCurrencyAmount: (state, action: PayloadAction<number>) => {
       state.amount = action.payload;
+    },
+    addCurrencyInfo: (state, action: PayloadAction<ICurrencyInfoState>) => {
+      const tempState = { ...state };
+      state = { ...tempState, ...action.payload };
     },
   },
 });
 
-export const { addCurrencyId, addCurrencyName, addCurrencySymbol, addCurrencyAmount } =
-  currencyInfoSlice.actions;
+export const {
+  addCurrencyId,
+  addCurrencyName,
+  addCurrencySymbol,
+  addCurrencyPriceUsd,
+  addCurrencyAmount,
+  addCurrencyInfo,
+} = currencyInfoSlice.actions;
 export default currencyInfoSlice.reducer;
