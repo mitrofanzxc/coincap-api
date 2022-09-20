@@ -4,7 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: $base * 3;
   padding: $base * 2 0;
+  border-bottom: 1px solid $color-dark;
 }
 
 .header-currencies {
@@ -50,13 +52,15 @@
 }
 
 .logo-wrapper {
-  display: block;
-  width: $base * 20;
+  display: flex;
+  min-width: $base * 20;
+  height: $base * 12;
 }
 
 .portfolio-wrapper {
-  display: block;
-  width: $base * 10;
+  display: flex;
+  min-width: $base * 10;
+  height: $base * 12;
   cursor: pointer;
 }
 
