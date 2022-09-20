@@ -54,6 +54,12 @@
   width: $base * 20;
 }
 
+.portfolio-wrapper {
+  display: block;
+  width: $base * 10;
+  cursor: pointer;
+}
+
 .logo {
   width: 100%;
   height: auto;

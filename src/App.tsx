@@ -7,16 +7,19 @@ import { PATHS } from './shared/paths';
 const App: FC = () => {
   const { main, currency, any } = PATHS;
   const isModalAddOpen = useAppSelector(({ modalAddToggle }) => modalAddToggle.value);
+  const isModalPortfolioOpen = useAppSelector(
+    ({ modalPortfolioToggle }) => modalPortfolioToggle.value
+  );
 
   useEffect(() => {
     const BODY = document.querySelector('body') as HTMLBodyElement;
 
-    if (isModalAddOpen) {
+    if (isModalAddOpen || isModalPortfolioOpen) {
       BODY.classList.add('body_overflow');
     } else {
       BODY.classList.remove('body_overflow');
     }
-  }, [isModalAddOpen]);
+  }, [isModalAddOpen, isModalPortfolioOpen]);
 
   return (
     <Routes>

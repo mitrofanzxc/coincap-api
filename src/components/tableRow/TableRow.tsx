@@ -35,17 +35,17 @@ const TableRow: FC<IAssets> = ({
     <tr>
       <td colSpan={1}>{rank}</td>
       <td colSpan={2} className="header-currency__wrapper">
-        <div className="header-currency__name-wrapper">
+        <Link to={`/${id}`} className="header-currency__name-wrapper">
           <img
             src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
             alt={symbol}
             className="header-currency__icon"
           />
-          <Link to={`/${id}`} className="header-currency__name">
+          <div className="header-currency__name">
             <div>{`${name}`}</div>
             <div>{`${symbol}`}</div>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <ButtonSecondary description="+" onClick={handleCurrency} />
       </td>
       <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {

@@ -48,3 +48,10 @@ textarea {
 a {
   text-decoration: none;
 }
+
+.flex_space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
