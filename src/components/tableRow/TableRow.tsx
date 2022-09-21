@@ -8,7 +8,6 @@ import {
   addCurrencyName,
   addCurrencySymbol,
   addCurrencyPriceUsd,
-  addCurrencyInfo,
 } from '../../features/currencyInfoSlice';
 import { IAssets } from '../../services/coincap.interface';
 
@@ -31,7 +30,6 @@ const TableRow: FC<IAssets> = ({
     dispatch(addCurrencyName(name));
     dispatch(addCurrencySymbol(symbol));
     dispatch(addCurrencyPriceUsd(priceUsd));
-    // dispatch(addCurrencyInfo({ id: id!, name: name, symbol: symbol }));
     dispatch(open());
   };
 

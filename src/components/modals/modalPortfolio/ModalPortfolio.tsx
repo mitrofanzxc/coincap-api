@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonSecondary } from '../../buttons';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
@@ -16,16 +16,13 @@ const ModalPortfolio: FC = () => {
     dispatch(close());
   };
 
-  useEffect(() => {
-    localStorage.setItem('modalPortfolioInfo', JSON.stringify(modalPortfolioInfo));
-  }, [modalPortfolioInfo]);
-
   return (
     <>
       <div className={`modal_add-wrapper ${!isModalPortfolioOpen ? 'display_none' : ''}`}>
         {!modalPortfolioInfo.length && <h2>Your portfolio is empty... Add more currency!</h2>}
         {modalPortfolioInfo &&
           modalPortfolioInfo.map(({ id, name, symbol, priceUsd, amount }) => {
+            console.log('id', id);
             console.log('priceUsd', priceUsd);
             return (
               <div key={id} className="flex_space-between">

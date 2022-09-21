@@ -7,6 +7,7 @@ import {
   addCurrencyId,
   addCurrencyName,
   addCurrencySymbol,
+  addCurrencyPriceUsd,
 } from '../../features/currencyInfoSlice';
 import { Chart, ButtonSecondary, ModalAdd } from '../../components';
 import './Currency.scss';
@@ -26,14 +27,12 @@ const Currency: FC = () => {
   );
 
   const dataChart = assetHistory?.data.map(({ priceUsd }) => Number(priceUsd).toFixed(2));
-  // const dataChartMin = Math.min(...dataChart!.map((value) => +value));
-  // const dataChartMax = Math.max(...dataChart!.map((value) => +value));
-  // const dataChartStep = (Math.abs(dataChartMin) + dataChartMax) / 2;
 
   const handleCurrency = () => {
     dispatch(addCurrencyId(asset!.data.id!));
     dispatch(addCurrencyName(asset!.data.name));
     dispatch(addCurrencySymbol(asset!.data.symbol));
+    dispatch(addCurrencyPriceUsd(asset!.data.priceUsd));
     dispatch(open());
   };
 

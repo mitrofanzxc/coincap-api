@@ -1,22 +1,14 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../../../app/hooks';
-import { open } from '../../../../features/modalPortfolioToggleSlice';
 import { useGetAssetsQuery } from '../../../../services/coincap';
 import { PATHS } from '../../../../shared/paths';
-import { ModalPortfolio } from '../../../../components';
+import { ModalPortfolio, Portfolio } from '../../../../components';
 import logo from '../../../../assets/images/logo.svg';
-import portfolio from '../../../../assets/images/portfolio.svg';
 import './Header.scss';
 
 const Header: FC = () => {
   const { main } = PATHS;
-  const dispatch = useAppDispatch();
   const { data: assets, isLoading } = useGetAssetsQuery({ limit: 3 });
-
-  const openModal = () => {
-    dispatch(open());
-  };
 
   return (
     <>
@@ -48,9 +40,7 @@ const Header: FC = () => {
         <Link to={main} className="logo-wrapper">
           <img src={logo} alt="logo" className="logo" />
         </Link>
-        <div className="portfolio-wrapper" onClick={openModal}>
-          <img src={portfolio} alt="portfolio" className="logo" />
-        </div>
+        <Portfolio />
       </header>
       <ModalPortfolio />
     </>
