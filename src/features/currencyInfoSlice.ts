@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { isIfStatement } from 'typescript';
 
 export interface ICurrencyInfoState {
   id?: string;
@@ -31,8 +32,7 @@ export const currencyInfoSlice = createSlice({
       state.amount = action.payload;
     },
     addCurrencyInfo: (state, action: PayloadAction<ICurrencyInfoState>) => {
-      const tempState = { ...state };
-      state = { ...tempState, ...action.payload };
+      return { ...state, ...action.payload };
     },
   },
 });

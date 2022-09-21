@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ButtonSecondary } from '../../buttons';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { close } from '../../../features/modalPortfolioToggleSlice';
+import { removeCurrencyInfoFromPortfolio } from '../../../features/portfolioSlice';
 import './ModalPortfolio.scss';
 
 const ModalPortfolio: FC = () => {
@@ -16,14 +17,16 @@ const ModalPortfolio: FC = () => {
     dispatch(close());
   };
 
+  const deleteCurrency = (value: string) => {
+    dispatch(removeCurrencyInfoFromPortfolio(value));
+  };
+
   return (
     <>
       <div className={`modal_add-wrapper ${!isModalPortfolioOpen ? 'display_none' : ''}`}>
         {!modalPortfolioInfo.length && <h2>Your portfolio is empty... Add more currency!</h2>}
         {modalPortfolioInfo &&
           modalPortfolioInfo.map(({ id, name, symbol, priceUsd, amount }) => {
-            console.log('id', id);
-            console.log('priceUsd', priceUsd);
             return (
               <div key={id} className="flex_space-between">
                 <Link to={`/${id}`} className="header-currency__name-wrapper" onClick={closeModal}>
@@ -38,7 +41,10 @@ const ModalPortfolio: FC = () => {
                   </div>
                 </Link>
                 <div>{`Amount: ${amount}`}</div>
-                <div>{`Price: ${Math.floor(+priceUsd!) * amount!}`}</div>
+                <div>{`Price: ${Math.floor(+priceUsd!) * amount!} USD`}</div>
+                <button className="button-delete" onClick={() => deleteCurrency(id!)}>
+                  Delete
+                </button>
               </div>
             );
           })}

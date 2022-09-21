@@ -8,7 +8,7 @@ import './ModalAdd.scss';
 
 const ModalAdd: FC = () => {
   const isModalAddOpen = useAppSelector(({ modalAddToggle }) => modalAddToggle.value);
-  const { id, name, symbol } = useAppSelector(({ currencyInfo }) => currencyInfo);
+  const { id, name, symbol, priceUsd } = useAppSelector(({ currencyInfo }) => currencyInfo);
   const dispatch = useAppDispatch();
 
   const [amount, setAmount] = useState<number>(100);
@@ -25,7 +25,7 @@ const ModalAdd: FC = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(addCurrencyInfoToPortfolio({ id, name, symbol, amount }));
+    dispatch(addCurrencyInfoToPortfolio({ id, name, symbol, priceUsd, amount }));
     closeModal();
   };
 
