@@ -1,48 +1,31 @@
 # Deploy: [Link](https://mitrofanzxc.github.io/coincap-api)
 
-# Getting Started with Create React App
+ТЗ: SPA для отслеживания криптовалют и формирования собственного портфеля. 
+Технологии: React, Redux, TS. Стили должны быть написаны самостоятельно, без использования сторонних библиотек (Bootstrap, Material UI, etc.) с использованием styled-components. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API: Coincap 
+
+Main: 
+На главной отображается список (таблица) криптовалют с основной информацией по ним и с контролами для возможности добавления в портфель (например, "+".). Реализовать пагинацию. 
+
+При нажатии на элемент таблицы, открывается страница с подробной информацией по валюте, с контролом для добавления в портфель, а также ее история в виде графика (можно использовать либы для визуализации данных). 
+
+При нажатии на "+", открывается модальное окно, где можно ввести количество (в т.ч. дробное) криптовалюты. После сабмита, криптовалюта добавляется в портфель в указанном количестве. 
+
+Реализовать роутинг. Кнопка "Вернуться" браузера должна работать корректно. 
+
+Header: 
+
+Стоимость 3 популярных криптовалют в ряд. Стоимость портфеля пользователя и разница с изначальной стоимостью портфеля, в скобках разница в процентах. Example: 134,32 USD +2,38 (1,80 %). При обновлении портфеля мы храним инфо о стоимости добавленной валюты на момент обновления. При следующем запуске (релоаде) приложения мы получаем текущие стоимости валют и можем обновить разницу. 
+
+При нажатии на информацию о портфеле, открывается модальное окно со списком валют в портфеле и возможностью убрать каждую из них из портфеля. 
+
+Портфель должен быть устойчив к релоду страницы (localStorage). 
+
+Дизайн должен быть простым, понятным и функциональным. Поддерживаются мобильные устройства и планшеты.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
