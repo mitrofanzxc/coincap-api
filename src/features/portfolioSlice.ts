@@ -9,7 +9,8 @@ export interface IPortfolio {
   amount?: number;
 }
 
-const initialState: IPortfolio[] = [];
+const localStorageInfo = localStorage.getItem('modalPortfolioInfo') || null;
+const initialState: IPortfolio[] = localStorageInfo ? JSON.parse(localStorageInfo) : [];
 
 export const portfolioSlice = createSlice({
   name: 'portfolio',
