@@ -19,7 +19,7 @@ export const portfolioSlice = createSlice({
       state.push(action.payload);
     },
     parseCurrencyInfoToPortfolio: (state, action: PayloadAction<IPortfolio[]>) => {
-      state = action.payload;
+      state = [...action.payload];
     },
   },
 });

@@ -6,14 +6,16 @@ import portfolio from '../../assets/images/portfolio.svg';
 
 const Portfolio: FC = () => {
   const dispatch = useAppDispatch();
-  const modalPortfolioInfo = useAppSelector(({ portfolio }) => portfolio);
 
   const openModal = () => {
     dispatch(open());
   };
 
+  const modalPortfolioInfo = useAppSelector(({ portfolio }) => portfolio);
+
   useEffect(() => {
     const localStorageInfo = localStorage.getItem('modalPortfolioInfo') || null;
+    console.log('localStorageInfo', localStorageInfo);
 
     if (localStorageInfo) {
       dispatch(parseCurrencyInfoToPortfolio(JSON.parse(localStorageInfo)));
