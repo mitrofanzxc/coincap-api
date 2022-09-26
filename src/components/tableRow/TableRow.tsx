@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { ButtonSecondary } from '../buttons';
 import { useAppDispatch } from '../../app/hooks';
 import { open } from '../../features/modalAddToggleSlice';
 import {
@@ -9,6 +8,8 @@ import {
   addCurrencySymbol,
   addCurrencyPriceUsd,
 } from '../../features/currencyInfoSlice';
+import { convertToMillions, convertToThousands, convertToPercentage } from '../../utils';
+import { ButtonSecondary } from '../buttons';
 import { IAssets } from '../../services/coincap.interface';
 
 const TableRow: FC<IAssets> = ({
@@ -50,36 +51,12 @@ const TableRow: FC<IAssets> = ({
         </Link>
         <ButtonSecondary description="+" onClick={handleCurrency} />
       </td>
-      <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(+priceUsd)}`}</td>
-      <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumFractionDigits: 2,
-      }).format(+marketCapUsd)}`}</td>
-      <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(+vwap24Hr)}`}</td>
-      <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumFractionDigits: 2,
-      }).format(+supply)}`}</td>
-      <td colSpan={1}>{`${new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumFractionDigits: 2,
-      }).format(+volumeUsd24Hr)}`}</td>
-      <td colSpan={1}>{`${Number(changePercent24Hr).toFixed(2)}%`}</td>
+      <td colSpan={1}>{convertToThousands(priceUsd)}</td>
+      <td colSpan={1}>{convertToMillions(marketCapUsd)}</td>
+      <td colSpan={1}>{convertToThousands(vwap24Hr)}</td>
+      <td colSpan={1}>{convertToMillions(supply)}</td>
+      <td colSpan={1}>{convertToMillions(volumeUsd24Hr)}</td>
+      <td colSpan={1}>{convertToPercentage(changePercent24Hr)}</td>
     </tr>
   );
 };

@@ -9,6 +9,7 @@ import {
   addCurrencySymbol,
   addCurrencyPriceUsd,
 } from '../../features/currencyInfoSlice';
+import { convertToMillions, convertToThousands, convertToPercentage } from '../../utils';
 import { Chart, ButtonSecondary, ModalAdd } from '../../components';
 import './Currency.scss';
 
@@ -48,47 +49,20 @@ const Currency: FC = () => {
             </div>
             <div className="circle">
               <h3>{`${asset.data.name} (${asset.data.symbol})`}</h3>
-              <h3>{`${new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              }).format(+asset.data.priceUsd)}`}</h3>
-              <h3>{`${Number(asset.data.changePercent24Hr).toFixed(2)}%`}</h3>
+              <h3>{convertToThousands(asset.data.priceUsd)}</h3>
+              <h3>{convertToPercentage(asset.data.changePercent24Hr)}</h3>
             </div>
             <div className="circle">
               <h3>Market Cap</h3>
-              <h3>
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                  notation: 'compact',
-                  compactDisplay: 'short',
-                  maximumFractionDigits: 2,
-                }).format(+asset.data.marketCapUsd)}
-              </h3>
+              <h3>{convertToMillions(asset.data.marketCapUsd)}</h3>
             </div>
             <div className="circle">
               <h3>Supply</h3>
-              <h3>
-                {`${new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                  notation: 'compact',
-                  compactDisplay: 'short',
-                  maximumFractionDigits: 2,
-                }).format(+asset.data.supply)} ${asset.data.symbol}`}
-              </h3>
+              <h3>{`${convertToMillions(asset.data.supply)} ${asset.data.symbol}`}</h3>
             </div>
             <div className="circle">
               <h3>Volume (24Hr)</h3>
-              <h3>
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                  notation: 'compact',
-                  compactDisplay: 'short',
-                  maximumFractionDigits: 2,
-                }).format(+asset.data.volumeUsd24Hr)}
-              </h3>
+              <h3>{convertToMillions(asset.data.volumeUsd24Hr)}</h3>
             </div>
             <ButtonSecondary description="+" onClick={handleCurrency} />
             <ModalAdd />

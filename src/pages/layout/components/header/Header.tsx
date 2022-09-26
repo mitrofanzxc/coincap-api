@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useGetAssetsQuery } from '../../../../services/coincap';
+import { convertToThousands } from '../../../../utils';
 import { PATHS } from '../../../../shared/paths';
 import { ModalPortfolio, Portfolio } from '../../../../components';
 import logo from '../../../../assets/images/logo.svg';
@@ -29,10 +30,7 @@ const Header: FC = () => {
                     <div>{`${name}`}</div>
                     <div>{`${symbol}`}</div>
                   </Link>
-                  <div>{`${new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                  }).format(+priceUsd)}`}</div>
+                  <div>{convertToThousands(priceUsd)}</div>
                 </div>
               );
             })}

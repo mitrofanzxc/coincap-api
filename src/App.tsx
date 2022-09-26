@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useBodyOverflow } from './hooks/useBodyOverflow';
+import { useBodyOverflow } from './utils';
 import { Layout, Main, Currency } from './pages';
 import { PATHS } from './shared/paths';
 
