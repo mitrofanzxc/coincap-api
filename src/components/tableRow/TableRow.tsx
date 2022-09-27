@@ -27,7 +27,7 @@ const TableRow: FC<IAssets> = ({
   const dispatch = useAppDispatch();
 
   const handleCurrency = () => {
-    dispatch(addCurrencyId(id!));
+    dispatch(addCurrencyId(id ? id : ''));
     dispatch(addCurrencyName(name));
     dispatch(addCurrencySymbol(symbol));
     dispatch(addCurrencyPriceUsd(priceUsd));
@@ -56,7 +56,7 @@ const TableRow: FC<IAssets> = ({
       <td colSpan={1}>{convertToThousands(vwap24Hr)}</td>
       <td colSpan={1}>{convertToMillions(supply)}</td>
       <td colSpan={1}>{convertToMillions(volumeUsd24Hr)}</td>
-      <td colSpan={1}>{convertToPercentage(changePercent24Hr)}</td>
+      <td colSpan={1}>{`${convertToPercentage(changePercent24Hr)}%`}</td>
     </tr>
   );
 };

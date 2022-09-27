@@ -20,18 +20,18 @@ const Header: FC = () => {
             assets &&
             assets.data.map(({ id, name, symbol, priceUsd }) => {
               return (
-                <div key={id} className="header-currency__wrapper">
+                <Link to={`/${id}`} key={id} className="header-currency__wrapper">
                   <img
                     src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
                     alt={symbol}
                     className="header-currency__icon"
                   />
-                  <Link to={`/${id}`} className="header-currency__name">
+                  <div className="header-currency__name">
                     <div>{`${name}`}</div>
                     <div>{`${symbol}`}</div>
-                  </Link>
+                  </div>
                   <div>{convertToThousands(priceUsd)}</div>
-                </div>
+                </Link>
               );
             })}
         </div>

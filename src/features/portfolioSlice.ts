@@ -20,7 +20,7 @@ export const portfolioSlice = createSlice({
       state.push(action.payload);
     },
     removeCurrencyInfoFromPortfolio: (state, action: PayloadAction<string>) => {
-      state = state.filter(({ id }) => id === action.payload);
+      return state.filter(({ id }) => id !== action.payload);
     },
   },
 });

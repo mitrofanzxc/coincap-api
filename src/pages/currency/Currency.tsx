@@ -9,7 +9,12 @@ import {
   addCurrencySymbol,
   addCurrencyPriceUsd,
 } from '../../features/currencyInfoSlice';
-import { convertToMillions, convertToThousands, convertToPercentage } from '../../utils';
+import {
+  convertToMillions,
+  convertToThousands,
+  convertToPercentage,
+  convertToDate,
+} from '../../utils';
 import { Chart, ButtonSecondary, ModalAdd } from '../../components';
 import './Currency.scss';
 
@@ -19,21 +24,14 @@ const Currency: FC = () => {
   const { data: asset, isLoading } = useGetAssetQuery({ id: currencyId });
   const { data: assetHistory } = useGetAssetHistoryQuery({ id: currencyId });
 
-  const labelsChart = assetHistory?.data.map(({ time }) =>
-    new Date(time).toLocaleString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-    })
-  );
-
-  const dataChart = assetHistory?.data.map(({ priceUsd }) => Number(priceUsd).toFixed(2));
+  const labelsChart = assetHistory?.data.map(({ time }) => convertToDate(time));
+  const dataChart = assetHistory?.data.map(({ priceUsd }) => convertToPercentage(priceUsd));
 
   const handleCurrency = () => {
-    dispatch(addCurrencyId(asset!.data.id!));
-    dispatch(addCurrencyName(asset!.data.name));
-    dispatch(addCurrencySymbol(asset!.data.symbol));
-    dispatch(addCurrencyPriceUsd(asset!.data.priceUsd));
+    dispatch(addCurrencyId(asset ? asset.data.id! : ''));
+    dispatch(addCurrencyName(asset ? asset.data.name : ''));
+    dispatch(addCurrencySymbol(asset ? asset.data.symbol : ''));
+    dispatch(addCurrencyPriceUsd(asset ? asset.data.priceUsd : ''));
     dispatch(open());
   };
 
@@ -50,7 +48,7 @@ const Currency: FC = () => {
             <div className="circle">
               <h3>{`${asset.data.name} (${asset.data.symbol})`}</h3>
               <h3>{convertToThousands(asset.data.priceUsd)}</h3>
-              <h3>{convertToPercentage(asset.data.changePercent24Hr)}</h3>
+              <h3>{`${convertToPercentage(asset.data.changePercent24Hr)}%`}</h3>
             </div>
             <div className="circle">
               <h3>Market Cap</h3>
