@@ -14,7 +14,7 @@ export const coinCapApi = createApi({
   endpoints: (builder) => ({
     getAssets: builder.query<IGetAssetsResponse, IGetAssetsRequest>({
       query: ({ search = '', ids = '', limit = 20, offset = 0 }) =>
-        `assets?${limit && `limit=${limit}`}`,
+        `assets?${limit && `limit=${limit}`}${ids && `&ids=${ids}`}`,
     }),
     getAsset: builder.query<IGetAssetResponse, IGetAssetRequest>({
       query: ({ id = '' }) => `assets/${id && `${id}`}`,

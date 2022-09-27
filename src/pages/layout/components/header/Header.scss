@@ -60,9 +60,15 @@
 
 .portfolio-wrapper {
   display: flex;
-  min-width: $base * 10;
-  height: $base * 12;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: $base * 2;
   cursor: pointer;
+
+  .logo {
+    width: $base * 12;
+    height: $base * 12;
+  }
 }
 
 .logo {

@@ -8,11 +8,11 @@
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   gap: $base * 5;
   width: 50%;
-  height: 25%;
+  height: 50%;
   padding: $base * 8 $base * 3 $base * 3 $base * 3;
   background-color: $color-white;
   border-radius: $base;

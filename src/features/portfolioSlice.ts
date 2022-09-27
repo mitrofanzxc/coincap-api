@@ -10,30 +10,42 @@ export interface IPortfolio {
   amount: number;
 }
 
-const initialState: IPortfolio[] = getLocalStorage('modalPortfolioInfo')
-  ? getLocalStorage('modalPortfolioInfo')
-  : [];
+export interface IInitialState {
+  portfolioList: IPortfolio[];
+  total: number;
+}
+
+const currentPortfolioList = localStorage.getItem('currentPortfolioList') || null;
+const currentPortfolioTotal = localStorage.getItem('currentPortfolioTotal') || null;
+
+const initialState: IInitialState = {
+  portfolioList: currentPortfolioList ? JSON.parse(currentPortfolioList) : [],
+  total: currentPortfolioTotal ? JSON.parse(currentPortfolioTotal) : 0,
+};
 
 export const portfolioSlice = createSlice({
   name: 'portfolio',
   initialState,
   reducers: {
     addCurrencyInfoToPortfolio: (state, action: PayloadAction<IPortfolio>) => {
-      const isCurrencyExist = state.find(({ id }) => id === action.payload.id);
+      const isCurrencyExist = state.portfolioList.find(({ id }) => id === action.payload.id);
 
       if (isCurrencyExist) {
         isCurrencyExist.amount += action.payload.amount;
         return state;
+      } else {
+        state.portfolioList.push(action.payload);
       }
-
-      state.push(action.payload);
     },
     removeCurrencyInfoFromPortfolio: (state, action: PayloadAction<string>) => {
-      return state.filter(({ id }) => id !== action.payload);
+      state.portfolioList = state.portfolioList.filter(({ id }) => id !== action.payload);
+    },
+    handleTotalPortfolio: (state, action: PayloadAction<number>) => {
+      state.total = action.payload;
     },
   },
 });
 
-export const { addCurrencyInfoToPortfolio, removeCurrencyInfoFromPortfolio } =
+export const { addCurrencyInfoToPortfolio, removeCurrencyInfoFromPortfolio, handleTotalPortfolio } =
   portfolioSlice.actions;
 export default portfolioSlice.reducer;
