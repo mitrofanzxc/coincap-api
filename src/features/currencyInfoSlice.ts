@@ -2,14 +2,20 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface ICurrencyInfoState {
-  id?: string;
-  name?: string;
-  symbol?: string;
-  priceUsd?: string;
-  amount?: number;
+  id: string;
+  name: string;
+  symbol: string;
+  priceUsd: string;
+  amount: number;
 }
 
-const initialState: ICurrencyInfoState = {};
+const initialState: ICurrencyInfoState = {
+  id: '',
+  name: '',
+  symbol: '',
+  priceUsd: '',
+  amount: 0,
+};
 
 export const currencyInfoSlice = createSlice({
   name: 'currencyInfo',

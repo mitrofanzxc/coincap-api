@@ -27,11 +27,13 @@ const ModalPortfolio: FC = () => {
         {!modalPortfolioInfo.length && <h2>Your portfolio is empty... Add more currency!</h2>}
         {modalPortfolioInfo &&
           modalPortfolioInfo.map(({ id, name, symbol, priceUsd, amount }) => {
+            console.log('priceUsd', priceUsd);
+            console.log('amount', amount);
             return (
               <div key={id} className="flex_space-between">
                 <Link to={`/${id}`} className="header-currency__name-wrapper" onClick={closeModal}>
                   <img
-                    src={`https://assets.coincap.io/assets/icons/${symbol!.toLowerCase()}@2x.png`}
+                    src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
                     alt={symbol}
                     className="header-currency__icon"
                   />
@@ -41,8 +43,8 @@ const ModalPortfolio: FC = () => {
                   </div>
                 </Link>
                 <div>{`Amount: ${amount}`}</div>
-                <div>{`Price: ${Math.floor(+priceUsd!) * amount!} USD`}</div>
-                <button className="button-delete" onClick={() => deleteCurrency(id!)}>
+                <div>{`Price: ${(+priceUsd * amount).toFixed(2)} USD`}</div>
+                <button className="button-delete" onClick={() => deleteCurrency(id)}>
                   Delete
                 </button>
               </div>
