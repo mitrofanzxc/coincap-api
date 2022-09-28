@@ -1,7 +1,8 @@
 import { FC, useEffect } from 'react';
+import { useGetAssetsQuery } from '../../services/coincap';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { open } from '../../features/modalPortfolioToggleSlice';
-import { handleTotalPortfolio } from '../../features/portfolioSlice';
+import { handleTotalPortfolio, updatePortfolio } from '../../features/portfolioSlice';
 import { convertToThousands } from '../../utils';
 import portfolio from '../../assets/images/portfolio.svg';
 
@@ -14,6 +15,15 @@ const Portfolio: FC = () => {
 
   const currentPortfolioList = useAppSelector(({ portfolio }) => portfolio.portfolioList);
   const currentPortfolioTotal = useAppSelector(({ portfolio }) => portfolio.total);
+
+  const ids = currentPortfolioList.map(({ id }) => id).join(',');
+  const { data: assets } = useGetAssetsQuery({ ids });
+
+  useEffect(() => {
+    if (assets?.data) {
+      dispatch(updatePortfolio(assets?.data));
+    }
+  }, [assets?.data]);
 
   useEffect(() => {
     localStorage.setItem('currentPortfolioList', JSON.stringify(currentPortfolioList));

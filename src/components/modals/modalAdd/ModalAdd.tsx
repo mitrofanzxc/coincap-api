@@ -11,7 +11,7 @@ const ModalAdd: FC = () => {
   const { id, name, symbol, priceUsd } = useAppSelector(({ currencyInfo }) => currencyInfo);
   const dispatch = useAppDispatch();
 
-  const [amount, setAmount] = useState<number>(100);
+  const [amount, setAmount] = useState<number>(1);
 
   const closeModal = () => {
     dispatch(close());

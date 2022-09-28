@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { getLocalStorage } from '../utils';
+import { IAssets } from '../services/coincap.interface';
 
 export interface IPortfolio {
   id: string;
@@ -43,9 +43,26 @@ export const portfolioSlice = createSlice({
     handleTotalPortfolio: (state, action: PayloadAction<number>) => {
       state.total = action.payload;
     },
+    updatePortfolio: (state, action: PayloadAction<IAssets[] | undefined>) => {
+      const tempState = [...state.portfolioList];
+
+      if (tempState.length && action.payload?.length) {
+        for (let i = 0; i < tempState.length; i += 1) {
+          tempState[i].priceUsd = action.payload[i].priceUsd
+            ? action.payload[i].priceUsd
+            : tempState[i].priceUsd;
+        }
+
+        state.portfolioList = tempState;
+      }
+    },
   },
 });
 
-export const { addCurrencyInfoToPortfolio, removeCurrencyInfoFromPortfolio, handleTotalPortfolio } =
-  portfolioSlice.actions;
+export const {
+  addCurrencyInfoToPortfolio,
+  removeCurrencyInfoFromPortfolio,
+  handleTotalPortfolio,
+  updatePortfolio,
+} = portfolioSlice.actions;
 export default portfolioSlice.reducer;

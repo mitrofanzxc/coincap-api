@@ -43,7 +43,6 @@ const ModalPortfolio: FC = () => {
                   </div>
                 </Link>
                 <div>{`Amount: ${amount}`}</div>
-                {/* <div>{`Price: ${(+priceUsd * amount).toFixed(2)} USD`}</div> */}
                 <div>{`Price: ${convertToThousands((+priceUsd * amount).toString())}`}</div>
                 <button className="button-delete" onClick={() => deleteCurrency(id)}>
                   Delete
