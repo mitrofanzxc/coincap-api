@@ -28,9 +28,8 @@ const Header: FC = () => {
                   />
                   <div className="header-currency__name">
                     <div>{`${name}`}</div>
-                    <div>{`${symbol}`}</div>
+                    <div>{convertToThousands(priceUsd)}</div>
                   </div>
-                  <div>{convertToThousands(priceUsd)}</div>
                 </Link>
               );
             })}

@@ -1,0 +1,36 @@
+@import '../../sass/constants.scss';
+
+.portfolio-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $base;
+  cursor: pointer;
+
+  .logo {
+    width: $base * 12;
+    height: $base * 12;
+
+    @media (max-width: $breakpoint-xs-min) {
+      display: none;
+    }
+  }
+}
+
+.portfolio-wrapper__info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: $base;
+
+  img {
+    width: $base * 5;
+    height: $base * 5;
+  }
+}
+
+.portfolio-wrapper__logo {
+  display: flex;
+  align-items: center;
+  gap: $base;
+}

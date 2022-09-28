@@ -3,8 +3,12 @@ import { useGetAssetsQuery } from '../../services/coincap';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { open } from '../../features/modalPortfolioToggleSlice';
 import { handleTotalPortfolio, updatePortfolio } from '../../features/portfolioSlice';
-import { convertToThousands, convertToPercentage, getLocalStorage } from '../../utils';
+import { convertToThousands, getLocalStorage } from '../../utils';
 import portfolio from '../../assets/images/portfolio.svg';
+import comparisonLogo from '../../assets/images/comparison.svg';
+import percentageLogo from '../../assets/images/percentage.svg';
+import totalLogo from '../../assets/images/total.svg';
+import './Portfolio.scss';
 
 const Portfolio: FC = () => {
   const dispatch = useAppDispatch();
@@ -26,11 +30,10 @@ const Portfolio: FC = () => {
   const { data: assets } = useGetAssetsQuery({ ids });
 
   const calculatePercentage = (prev: number, next: number) => {
-    console.log('prev', prev);
-    console.log('next', next);
-
     if (!prev && !next) {
       setPercentage(0);
+    } else if (prev && !next) {
+      setPercentage(100);
     } else if (!next) {
       setPercentage(0);
     } else {
@@ -62,12 +65,20 @@ const Portfolio: FC = () => {
 
   return (
     <div className="portfolio-wrapper" onClick={openModal}>
-      {/* <div>{`Total: ${convertToThousands(
-        currentPortfolioTotal.toString()
-      )} ${previousTotal} (${persentage} %)`}</div> */}
-      <div>{`Total: ${convertToThousands(currentPortfolioTotal.toString())}`}</div>
-      <div>{`Difference: ${convertToThousands(difference.toString())}`}</div>
-      <div>{`Percentage: ${percentage.toFixed(2)}%`}</div>
+      <div className="portfolio-wrapper__info">
+        <div className="portfolio-wrapper__logo">
+          <img src={totalLogo} alt="total-logo" />
+          <span>{convertToThousands(currentPortfolioTotal.toString())}</span>
+        </div>
+        <div className="portfolio-wrapper__logo">
+          <img src={comparisonLogo} alt="comparison-logo" />
+          <span>{convertToThousands(difference.toString())}</span>
+        </div>
+        <div className="portfolio-wrapper__logo">
+          <img src={percentageLogo} alt="percentage-logo" />
+          <span>{`${percentage.toFixed(2)}%`}</span>
+        </div>
+      </div>
       <img src={portfolio} alt="portfolio" className="logo" />
     </div>
   );

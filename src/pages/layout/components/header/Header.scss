@@ -2,7 +2,7 @@
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: $base * 3;
   padding: $base * 2 0;
@@ -11,8 +11,14 @@
 
 .header-currencies {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: $base;
+
+  @media (max-width: $breakpoint-xs-min) {
+    width: min-content;
+  }
 }
 
 .header-currency__wrapper {
@@ -56,19 +62,6 @@
   display: flex;
   min-width: $base * 20;
   height: $base * 12;
-}
-
-.portfolio-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: $base * 2;
-  cursor: pointer;
-
-  .logo {
-    width: $base * 12;
-    height: $base * 12;
-  }
 }
 
 .logo {
