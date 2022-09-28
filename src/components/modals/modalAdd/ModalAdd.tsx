@@ -37,6 +37,7 @@ const ModalAdd: FC = () => {
           type="number"
           name=""
           id=""
+          min={1}
           placeholder="add amount of currency..."
           className="input-number"
           value={amount}
