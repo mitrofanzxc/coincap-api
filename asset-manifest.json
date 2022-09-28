@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/coincap-api/static/css/main.13e1a72c.css",
-    "main.js": "/coincap-api/static/js/main.26991a86.js",
+    "main.css": "/coincap-api/static/css/main.d97e8cb4.css",
+    "main.js": "/coincap-api/static/js/main.c734877f.js",
     "static/media/logo.svg": "/coincap-api/static/media/logo.c7be6b4702fe054d8f3ab1720e2ef43c.svg",
     "static/media/portfolio.svg": "/coincap-api/static/media/portfolio.404cb8f6ae584ed028b271548215888b.svg",
+    "static/media/total.svg": "/coincap-api/static/media/total.de0425335c3c184b2bbc77bad728dcd7.svg",
     "index.html": "/coincap-api/index.html",
-    "main.13e1a72c.css.map": "/coincap-api/static/css/main.13e1a72c.css.map",
-    "main.26991a86.js.map": "/coincap-api/static/js/main.26991a86.js.map"
+    "static/media/comparison.svg": "/coincap-api/static/media/comparison.c4267760153f0c211a7e63e8b4cb38d0.svg",
+    "static/media/percentage.svg": "/coincap-api/static/media/percentage.2cfd18fd3a1ff9a235f3d75a02b3c980.svg",
+    "main.d97e8cb4.css.map": "/coincap-api/static/css/main.d97e8cb4.css.map",
+    "main.c734877f.js.map": "/coincap-api/static/js/main.c734877f.js.map"
   },
   "entrypoints": [
-    "static/css/main.13e1a72c.css",
-    "static/js/main.26991a86.js"
+    "static/css/main.d97e8cb4.css",
+    "static/js/main.c734877f.js"
   ]
 }
