@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/coincap-api/static/css/main.13e1a72c.css",
-    "main.js": "/coincap-api/static/js/main.6e2503b1.js",
+    "main.js": "/coincap-api/static/js/main.1c96f801.js",
     "static/media/logo.svg": "/coincap-api/static/media/logo.c7be6b4702fe054d8f3ab1720e2ef43c.svg",
     "static/media/portfolio.svg": "/coincap-api/static/media/portfolio.404cb8f6ae584ed028b271548215888b.svg",
     "index.html": "/coincap-api/index.html",
     "main.13e1a72c.css.map": "/coincap-api/static/css/main.13e1a72c.css.map",
-    "main.6e2503b1.js.map": "/coincap-api/static/js/main.6e2503b1.js.map"
+    "main.1c96f801.js.map": "/coincap-api/static/js/main.1c96f801.js.map"
   },
   "entrypoints": [
     "static/css/main.13e1a72c.css",
-    "static/js/main.6e2503b1.js"
+    "static/js/main.1c96f801.js"
   ]
 }
