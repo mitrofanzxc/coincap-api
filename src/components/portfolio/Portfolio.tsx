@@ -3,7 +3,7 @@ import { useGetAssetsQuery } from '../../services/coincap';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { open } from '../../features/modalPortfolioToggleSlice';
 import { handleTotalPortfolio, updatePortfolio } from '../../features/portfolioSlice';
-import { convertToThousands, getLocalStorage } from '../../utils';
+import { convertToThousands, convertToPercentage, getLocalStorage } from '../../utils';
 import portfolio from '../../assets/images/portfolio.svg';
 
 const Portfolio: FC = () => {
@@ -20,15 +20,21 @@ const Portfolio: FC = () => {
     getLocalStorage('currentPortfolioTotal')
   );
   const [difference, setDifference] = useState<number>(0);
+  const [percentage, setPercentage] = useState<number>(0);
 
   const ids = currentPortfolioList.map(({ id }) => id).join(',');
   const { data: assets } = useGetAssetsQuery({ ids });
 
-  const handleDifference = (prev: number, next: number) => {
-    if (prev < next) {
-      setDifference(prev + next);
-    } else if (prev > next) {
-      setDifference(next - prev);
+  const calculatePercentage = (prev: number, next: number) => {
+    console.log('prev', prev);
+    console.log('next', next);
+
+    if (!prev && !next) {
+      setPercentage(0);
+    } else if (!next) {
+      setPercentage(0);
+    } else {
+      setPercentage((prev / next - 1) * 100);
     }
   };
 
@@ -44,7 +50,8 @@ const Portfolio: FC = () => {
     const totalSum =
       currentPortfolioList.reduce((prev, next) => prev + +next.priceUsd * next.amount, 0) || 0;
 
-    handleDifference(previousTotal, totalSum);
+    setDifference(totalSum - previousTotal);
+    calculatePercentage(totalSum, previousTotal);
 
     dispatch(handleTotalPortfolio(totalSum));
   }, [currentPortfolioList]);
@@ -60,6 +67,7 @@ const Portfolio: FC = () => {
       )} ${previousTotal} (${persentage} %)`}</div> */}
       <div>{`Total: ${convertToThousands(currentPortfolioTotal.toString())}`}</div>
       <div>{`Difference: ${convertToThousands(difference.toString())}`}</div>
+      <div>{`Percentage: ${percentage.toFixed(2)}%`}</div>
       <img src={portfolio} alt="portfolio" className="logo" />
     </div>
   );
