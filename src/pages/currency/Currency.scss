@@ -1,0 +1,45 @@
+@import '../../sass/constants.scss';
+
+.currency-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: $base * 3;
+  margin-top: $base * 2;
+  padding: $base * 2;
+  color: $color-white;
+  border-radius: $base;
+  background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+  .button-secondary {
+    width: $base * 16;
+    height: $base * 16;
+    font-size: $fs-xxl;
+    font-weight: $fw-medium;
+  }
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $base * 2;
+  width: 20%;
+  padding: $base * 2;
+  border-radius: $base;
+  // background-color: $color-white;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  color: $color-white;
+  text-align: center;
+
+  @media (max-width: $breakpoint-md-min) {
+    width: 30%;
+  }
+
+  @media (max-width: $breakpoint-md-min) {
+    width: 42%;
+  }
+}

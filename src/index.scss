@@ -1,0 +1,57 @@
+@import './sass/normalize.scss';
+@import './sass/constants.scss';
+
+body {
+  @include roboto;
+  color: $color-dark;
+  scroll-behavior: smooth;
+}
+
+.body_overflow {
+  overflow-y: hidden;
+}
+
+.display_none {
+  display: none;
+}
+
+.shadow {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-white-05;
+}
+
+.wrapper {
+  max-width: $base * 480;
+  width: 95%;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  @include roboto;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex_space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

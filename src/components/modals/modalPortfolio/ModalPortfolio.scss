@@ -1,0 +1,19 @@
+@import '../../../sass/constants.scss';
+
+.button-delete {
+  padding: $base * 2;
+  background-color: $color-white;
+  border-radius: $base;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  text-align: center;
+  transition: all $transition-01 ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(0.063rem, 0.063rem);
+  }
+
+  &:active {
+    transform: translate(0.125rem, 0.125rem);
+  }
+}

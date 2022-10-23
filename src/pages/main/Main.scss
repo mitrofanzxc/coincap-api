@@ -1,0 +1,60 @@
+@import '../../sass/constants.scss';
+
+.table {
+  width: 100%;
+  margin-top: $base * 2;
+  text-align: end;
+  border-collapse: collapse;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 2px;
+}
+
+tr {
+  padding: $base * 2 0;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+th {
+  padding: $base * 2 0;
+
+  &:first-child {
+    text-align: center;
+  }
+
+  &:nth-child(2) {
+    text-align: left;
+  }
+
+  &:nth-child(4),
+  &:nth-child(6) {
+    @media (max-width: $breakpoint-lg-min) {
+      display: none;
+    }
+  }
+
+  &:nth-child(5),
+  &:nth-child(7) {
+    @media (max-width: $breakpoint-sm-min) {
+      display: none;
+    }
+  }
+}
+
+td {
+  &:first-child {
+    text-align: center;
+  }
+
+  &:nth-child(4),
+  &:nth-child(6) {
+    @media (max-width: $breakpoint-lg-min) {
+      display: none;
+    }
+  }
+
+  &:nth-child(5),
+  &:nth-child(7) {
+    @media (max-width: $breakpoint-sm-min) {
+      display: none;
+    }
+  }
+}

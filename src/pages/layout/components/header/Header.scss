@@ -1,0 +1,70 @@
+@import '../../../../sass/constants.scss';
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $base * 3;
+  padding: $base * 2 0;
+  border-bottom: 1px solid $color-dark;
+}
+
+.header-currencies {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: $base;
+
+  @media (max-width: $breakpoint-xs-min) {
+    width: min-content;
+  }
+}
+
+.header-currency__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $base;
+  padding: $base;
+  color: $color-dark;
+}
+
+.header-currency__name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: $base;
+}
+
+.header-currency__name {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: $base;
+  color: $color-dark;
+  text-align: left;
+  transition: all $transition;
+
+  &:hover {
+    div {
+      text-decoration: underline;
+    }
+  }
+}
+
+.header-currency__icon {
+  width: $base * 8;
+  height: $base * 8;
+}
+
+.logo-wrapper {
+  display: flex;
+  min-width: $base * 20;
+  height: $base * 12;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
