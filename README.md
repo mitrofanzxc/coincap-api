@@ -1,31 +1,26 @@
-# Deploy: [Link](https://mitrofanzxc.github.io/coincap-api)
+# Deploy: [Link](https://mitrofanzxc.github.io/calculator/) 
 
-ТЗ: SPA для отслеживания криптовалют и формирования собственного портфеля. 
-Технологии: React, Redux, TS. Стили должны быть написаны самостоятельно, без использования сторонних библиотек (Bootstrap, Material UI, etc.) с использованием styled-components. 
+### `npm i` 
 
-API: Coincap 
+Install all dependencies. 
 
-Main: 
-На главной отображается список (таблица) криптовалют с основной информацией по ним и с контролами для возможности добавления в портфель (например, "+".). Реализовать пагинацию. 
+### `npm run start` 
 
-При нажатии на элемент таблицы, открывается страница с подробной информацией по валюте, с контролом для добавления в портфель, а также ее история в виде графика (можно использовать либы для визуализации данных). 
+Run the app in the development mode. 
 
-При нажатии на "+", открывается модальное окно, где можно ввести количество (в т.ч. дробное) криптовалюты. После сабмита, криптовалюта добавляется в портфель в указанном количестве. 
+### `npm run watch` 
 
-Реализовать роутинг. Кнопка "Вернуться" браузера должна работать корректно. 
+Keep track of all changes. 
 
-Header: 
+## Requirements of the project: 
 
-Стоимость 3 популярных криптовалют в ряд. Стоимость портфеля пользователя и разница с изначальной стоимостью портфеля, в скобках разница в процентах. Example: 134,32 USD +2,38 (1,80 %). При обновлении портфеля мы храним инфо о стоимости добавленной валюты на момент обновления. При следующем запуске (релоаде) приложения мы получаем текущие стоимости валют и можем обновить разницу. 
-
-При нажатии на информацию о портфеле, открывается модальное окно со списком валют в портфеле и возможностью убрать каждую из них из портфеля. 
-
-Портфель должен быть устойчив к релоду страницы (localStorage). 
-
-Дизайн должен быть простым, понятным и функциональным. Поддерживаются мобильные устройства и планшеты.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+- [x] SPA for tracking cryptocurrencies and building your own portfolio. Technologies: React, Redux, TS/ Styles should be written independently, without the use of third-party libraries (Bootstrap, Material UI, etc.) using styled-components. 
+- [x] API: Coincap 
+- [x] Main: The main page displays a list (table) of cryptocurrencies with basic information on them and with controls for adding to the portfolio (for example, "+".). Implement pagination. 
+- [x] When you click on a table element, a page opens with detailed information on the currency, with a control for adding to the portfolio, as well as its history in the form of a graph (either can be used to visualize data). 
+- [x] By clicking on the "+", a modal window opens where you can enter the amount (including fractional) of the cryptocurrency. After the submission, the cryptocurrency is added to the portfolio in the specified amount. 
+- [x] Implement routing. The browser's back button should work correctly. 
+- [x] Header: Cost of 3 popular cryptocurrencies in a row. The value of the user's portfolio and the difference with the initial value of the portfolio, in parentheses, the percentage difference. Example: $134.32 +2.38 (1.80%). When updating a portfolio, we store information about the value of the added currency at the time of the update. The next time we start (reload) the application, we get the current values ​​of the currencies and can update the difference. 
+- [x] When you click on the portfolio information, a modal window opens with a list of currencies in the portfolio and the ability to remove each of them from the portfolio. 
+- [x] The portfolio must be page reload resistant (localStorage). 
+- [x] The design should be simple, clear and functional. Mobile devices and tablets are supported. 
